@@ -1,29 +1,23 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { Menu, LogOut, User } from 'lucide-react'
-import toast from 'react-hot-toast'
-import { logout } from '@/lib/auth/actions'
+import { logout } from "@/lib/auth/actions";
+import { LogOut, Menu, User } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface NavbarProps {
-  onMenuClick: () => void
-  userName: string
+  onMenuClick: () => void;
+  userName: string;
 }
 
 export function Navbar({ onMenuClick, userName }: NavbarProps) {
-  const router = useRouter()
-  const [isLoggingOut, setIsLoggingOut] = useState(false)
+  const router = useRouter();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleLogout = async () => {
-    setIsLoggingOut(true)
-    try {
-      await logout()
-    } catch {
-      toast.error('Failed to log out. Try again.')
-      setIsLoggingOut(false)
-    }
-  }
+    setIsLoggingOut(true);
+    await logout();
+  };
 
   return (
     <header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-4 lg:px-6">
@@ -48,5 +42,5 @@ export function Navbar({ onMenuClick, userName }: NavbarProps) {
         </button>
       </div>
     </header>
-  )
+  );
 }

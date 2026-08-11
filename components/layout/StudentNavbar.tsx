@@ -3,7 +3,6 @@
 import { logout } from "@/lib/auth/actions";
 import { Building2, LogOut, Pencil, User } from "lucide-react";
 import { useState } from "react";
-import toast from "react-hot-toast";
 
 interface StudentNavbarProps {
   userName: string;
@@ -15,12 +14,7 @@ export function StudentNavbar({ userName, onEditProfile }: StudentNavbarProps) {
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
-    try {
-      await logout();
-    } catch {
-      toast.error("Failed to log out. Try again.");
-      setIsLoggingOut(false);
-    }
+    await logout();
   };
 
   return (
