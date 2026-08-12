@@ -219,7 +219,7 @@ export default function HomePage() {
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
                 {
-                  "Assign cleaning duty to a room, not a name. Whoever's home marks it done."
+                  "Assign cleaning duty to a room. Whoever's home marks it done."
                 }
               </p>
               <div className="mt-4 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-500">
